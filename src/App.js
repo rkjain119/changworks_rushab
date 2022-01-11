@@ -1,7 +1,31 @@
+import React from "react";
+import { GlobalHotKeys } from "react-hotkeys";
+import fireConfetti from "./confetti";
 import "./App.css";
 
-function App() {
-	return <h1>CHANGWORKS</h1>;
-}
+const keyMap = {
+	FIRE_CONFETTI: [
+		"c h a n g w o r k s",
+		"shift+c h a n g w o r k s",
+		"C H A N G W O R K S",
+		"shift+c shift+h shift+a shift+n shift+g shift+w shift+o shift+r shift+k shift+s",
+	],
+};
+
+const handlers = {
+	FIRE_CONFETTI: () => fireConfetti(),
+};
+
+const App = () => {
+	return (
+		<GlobalHotKeys keyMap={keyMap} handlers={handlers} root={true}>
+			<div className='container'>
+				<h1 className='title'>
+					Type <span>"changworks"</span>
+				</h1>
+			</div>
+		</GlobalHotKeys>
+	);
+};
 
 export default App;
