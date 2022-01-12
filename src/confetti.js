@@ -1,39 +1,83 @@
 import confetti from "canvas-confetti";
 
-let count = 200;
-let defaults = {
-	origin: { y: 0.7 },
-};
+let end = Date.now() + 15 * 1000;
+// let colors = ["#ff0883", "#83ff08", "#ff8308", "#ff8308", "#ff8308", "#08ff83"];
+let skew = 1;
+skew = Math.max(0.8, skew - 0.001);
 
 function fireConfetti() {
-	fire(0.25, {
-		spread: 26,
-		startVelocity: 55,
+	confetti({
+		particleCount: 1,
+		startVelocity: 1,
+		angle: 270,
+		spread: 110,
+		origin: {
+			x: Math.random(),
+			y: Math.random() * skew - 0.2,
+		},
+		colors: ["#ff0883"],
+		ticks: 200,
+		gravity: 0.5,
+		shapes: ["circle"],
 	});
-	fire(0.2, {
-		spread: 60,
-	});
-	fire(0.35, {
-		spread: 100,
-		decay: 0.91,
-		scalar: 0.8,
-	});
-	fire(0.1, {
+	confetti({
+		particleCount: 1,
+		startVelocity: 0,
+		angle: 270,
 		spread: 120,
-		startVelocity: 25,
-		decay: 0.92,
-		scalar: 1.2,
+		origin: {
+			x: Math.random() * skew - 0.2,
+			y: Math.random(),
+		},
+		colors: ["#8308ff"],
+		gravity: 1,
+		shapes: ["square"],
 	});
-	fire(0.1, {
-		spread: 120,
-		startVelocity: 45,
+	confetti({
+		particleCount: 1,
+		startVelocity: 1,
+		angle: 270,
+		spread: 130,
+		origin: {
+			x: Math.random(),
+			y: Math.random() * skew - 0.2,
+		},
+		colors: ["#ff8308"],
+		ticks: 200,
+		gravity: 0.5,
+		shapes: ["circle"],
 	});
-}
-function fire(particleRatio, opts) {
-	confetti(
-		Object.assign({}, defaults, opts, {
-			particleCount: Math.floor(count * particleRatio),
-		})
-	);
+	confetti({
+		particleCount: 1,
+		startVelocity: 1,
+		angle: 270,
+		spread: 140,
+		origin: {
+			x: Math.random(),
+			y: Math.random() * skew - 0.2,
+		},
+		colors: ["#08ff83"],
+		ticks: 200,
+		gravity: 1,
+		shapes: ["square"],
+	});
+	confetti({
+		particleCount: 1,
+		startVelocity: 1,
+		angle: 270,
+		spread: 150,
+		origin: {
+			x: Math.random() * skew - 0.2,
+			y: Math.random(),
+		},
+		colors: ["#0883ff"],
+		ticks: 200,
+		gravity: 0.5,
+		shapes: ["square"],
+	});
+
+	if (Date.now() < end) {
+		requestAnimationFrame(fireConfetti);
+	}
 }
 export default fireConfetti;

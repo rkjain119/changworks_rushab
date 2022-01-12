@@ -23,6 +23,7 @@ const App = () => {
 				<h1 className='title'>
 					Type <span>"changworks"</span>
 				</h1>
+				<p className='subtitle'>case insensetive</p>
 			</div>
 		</GlobalHotKeys>
 	);

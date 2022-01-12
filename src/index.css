@@ -1,7 +1,3 @@
-body {
-	font-family: "Ubuntu", sans-serif;
-	background-color: #171d23;
-}
 div[tabindex="-1"]:focus {
 	outline: 0;
 }
