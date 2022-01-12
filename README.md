@@ -2,10 +2,19 @@
 
 ### Demo
 
-<Link_here>
+https://changworks-rushab.netlify.app/
 
 ### Instructions
 
-To run the project locally, follow these steps:
+- Clone the project
+- Install the dependencies
 
-- put the steps here
+```javascript
+$ npm install
+```
+
+- Start the development server
+
+```javascript
+$ npm start
+```
